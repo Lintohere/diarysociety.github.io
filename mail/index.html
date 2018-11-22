@@ -32,10 +32,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- pop-up -->
 <link rel="stylesheet" href="/css/touchTouch.css" type="text/css" media="all">
 
-
-<script src="http://dev.openlayers.org/OpenLayers.js"></script>
-
-
 <script type="text/javascript" src="/js/jquery.fancybox.js"></script>
 	   <script type="text/javascript">
 			$(document).ready(function() {
@@ -92,54 +88,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
 	<!-- //banner --></body></html>
 
-	<script>
-
-	$(document).ready(function() {
-    	var map;
-    
-	    // The overlay layer for our marker, with a simple diamond as symbol
-	    var overlay = new OpenLayers.Layer.Vector('Overlay', {
-	        styleMap: new OpenLayers.StyleMap({
-	            graphicWidth: 20, graphicHeight: 24, graphicYOffset: -24,
-	            title: '${tooltip}'
-	        })
-	    });
-
-	    // The location of our marker and popup. We usually think in geographic
-	    // coordinates ('EPSG:4326'), but the map is projected ('EPSG:3857').
-	    var myLocation = new OpenLayers.Geometry.Point(75.969631, 11.471)
-	        .transform('EPSG:4326', 'EPSG:3857');
-
-	    // We add the marker with a tooltip text to the overlay
-	    overlay.addFeatures([
-	        new OpenLayers.Feature.Vector(myLocation, {tooltip: 'OpenLayers'})
-	    ]);
-
-	    // A popup with some information about our location
-	    var popup = new OpenLayers.Popup.FramedCloud("Popup", 
-	        myLocation.getBounds().getCenterLonLat(), null,
-	        'We are here.', null,
-	        true // <-- true if we want a close (X) button, false otherwise
-	    );
-
-	    // Finally we create the map
-	    map = new OpenLayers.Map({
-	        div: "mapdiv", projection: "EPSG:3857",
-	        layers: [new OpenLayers.Layer.OSM(), overlay],
-	        center: myLocation.getBounds().getCenterLonLat(), zoom: 15
-	    });
-
-	    // and add the popup to it.
-	    map.addPopup(popup);
-    });	
-</script>
-
-	<!-- mail -->
+		<!-- mail -->
 	<div class="mail">
 		<!-- container -->
-		<div class="container">
-			<div id="mapdiv" class="map footer-middle wow bounceIn animated" data-wow-delay="0.4s" style="visibility: visible; -webkit-animation-delay: 0.4s;">
-			</div>
+		<div class="container">			
 			<div class="mail-grids">
 				<div class="col-md-6 mail-grid-left wow fadeInLeft animated" data-wow-delay="0.4s" style="visibility: visible; -webkit-animation-delay: 0.4s;">
 					<h3>Contact us</h3>
